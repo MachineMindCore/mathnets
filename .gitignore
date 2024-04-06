@@ -1,0 +1,11 @@
+*.pycache/
+*.pycache
+
+*.pyc
+*.pyc/
+
+.*/
+
+*.gml
+*.json
+*.pickle
