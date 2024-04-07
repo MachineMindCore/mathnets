@@ -6,7 +6,17 @@ from typing import List, Dict
 
 GRAPH_FORMAT = sys.argv[1]
 
-def add_type(collection: List[dict], math_type: str):
+def add_type(collection: List[dict], math_type: str) -> List[dict]:
+    """
+
+    Add type variable (one by one) to a list of nodes.
+    Args:
+        collection (List[dict]): List of nodes
+        math_type (str): Type or classification of node
+
+    Returns:
+        collection (List[dict]): List of nodes modificated
+    """
     for item in collection:
         item["type"] = math_type
     return collection
@@ -34,6 +44,13 @@ def create_netdata(node_data):
     return standard_data
 
 def load_naturalproofs(graphs: Dict[dict, dict]):
+    """
+    Args:
+        graphs (Dict[dict, dict]): _description_
+
+    Returns:
+        _type_: _description_
+    """
     for graph_name in graphs.keys():
         with open(graphs[graph_name]["address"], 'r') as f:
             
@@ -67,6 +84,15 @@ def load_naturalproofs(graphs: Dict[dict, dict]):
     return graphs
 
 def save_graphs(graphs: Dict[dict, dict], graph_format: str):
+    """_summary_
+
+    Args:
+        graphs (Dict[dict, dict]): _description_
+        graph_format (str): _description_
+
+    Returns:
+        _type_: _description_
+    """
     for graph_name in graphs.keys():
         save_address = graphs[graph_name]["address"].split(".")[0]
         graphs[graph_name]["content"].write(f"{save_address}.{graph_format}", format=graph_format)
