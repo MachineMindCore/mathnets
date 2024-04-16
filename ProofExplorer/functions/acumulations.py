@@ -3,25 +3,35 @@ import numpy as np
 from typing import Dict, Generator, List, Tuple
 
 
-def accumulate_categories(source_graph: ig.Graph, category_tab: str) -> Dict[str, ig.Graph]:
-    toplevel_category_subgraphs = {}
-    
-    # Itera sobre cada vértice y agrupa por toplevel_category
-    for vertex in source_graph.vs:
-        toplevel_categories = vertex[category_tab]
-        if toplevel_categories is None:
-            toplevel_categories = []
-        for cat in toplevel_categories:
-            if cat not in toplevel_category_subgraphs:
-                toplevel_category_subgraphs[cat] = []
-            toplevel_category_subgraphs[cat].append(vertex.index)
-    
-    # Crea subgrafos para cada categoría de nivel superior
-    for cat, vertices in toplevel_category_subgraphs.items():
-        subgraph = source_graph.subgraph(vertices)
-        toplevel_category_subgraphs[cat] = subgraph
+def accumulate_categories(source_graph: ig.Graph, category_tab: str) -> Generator[Tuple[str, ig.Graph], None, None]:       
+
+        # Obtén todas las categorías de nivel superior únicas en el grafo
+        all_categories = set()
+        for vertex in source_graph.vs:
+            categories_update = vertex[category_tab]
+            all_categories.update(categories_update)
+
+        for category in all_categories:
+            vertex_subset = source_graph.vs.select(lambda node: (node["type"] in ["definition", "other"]) or (category in node[category_tab]))
+            subgraph = source_graph.induced_subgraph(vertex_subset)
         
-    return toplevel_category_subgraphs
+            # Add subgraphs to generator
+            yield category, subgraph
+
+def accumulate_categories_isolated(source_graph: ig.Graph, category_tab: str) -> Generator[Tuple[str, ig.Graph], None, None]:       
+
+        # Obtén todas las categorías de nivel superior únicas en el grafo
+        all_categories = set()
+        for vertex in source_graph.vs:
+            categories_update = vertex[category_tab]
+            all_categories.update(categories_update)
+
+        for category in all_categories:
+            vertex_subset = source_graph.vs.select(lambda node:  category in node[category_tab])
+            subgraph = source_graph.induced_subgraph(vertex_subset)
+        
+            # Add subgraphs to generator
+            yield category, subgraph
 
 def accumulate_categories_preserved(source_graph: ig.Graph, category_tab: str) -> Generator[Tuple[str, ig.Graph], None, None]:
     
