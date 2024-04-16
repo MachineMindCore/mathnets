@@ -25,6 +25,7 @@ packaging==24.0
 pandas==2.2.1
 pillow==10.3.0
 plotly==5.20.0
+-e git+https://github.com/MachineMindCore/naturalproofs_viewer.git@931af5b1484abab8ac1cb72514017bb4448f1861#egg=ProofExplorer
 pyparsing==3.1.2
 python-dateutil==2.9.0.post0
 pytz==2024.1
