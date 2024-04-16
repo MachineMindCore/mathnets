@@ -1,3 +1,4 @@
+from hashlib import new
 import json
 import sys
 import igraph as ig
@@ -103,19 +104,19 @@ if __name__ == "__main__":
     structure = {
         "proofwiki": {
             "content": ig.Graph(),
-            "address": "data/naturalproofs_proofwiki/naturalproofs_proofwiki.json"
+            "address": "data/raw/naturalproofs_proofwiki/naturalproofs_proofwiki.json"
         },
         "stacks": {
             "content": ig.Graph(),
-            "address": "data/naturalproofs_stacks/naturalproofs_stacks.json"
+            "address": "data/raw/naturalproofs_stacks/naturalproofs_stacks.json"
         },
         "stein": {
             "content": ig.Graph(),
-            "address": "data/naturalproofs_stein/naturalproofs_stein.json"
+            "address": "data/raw/naturalproofs_stein/naturalproofs_stein.json"
         },
         "trench": {
             "content": ig.Graph(),
-            "address": "data/naturalproofs_trench/naturalproofs_trench.json"
+            "address": "data/raw/naturalproofs_trench/naturalproofs_trench.json"
         }
     }
 
@@ -128,4 +129,4 @@ if __name__ == "__main__":
     for graph_name, metadata in loaded_graphs.items():
         print(f"GRAPH ---> {graph_name}")
         ig.summary(metadata["content"])
-        
+    
