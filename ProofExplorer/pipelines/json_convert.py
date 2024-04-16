@@ -103,19 +103,19 @@ if __name__ == "__main__":
     structure = {
         "proofwiki": {
             "content": ig.Graph(),
-            "address": "data/naturalproofs/naturalproofs_proofwiki.json"
+            "address": "data/naturalproofs_proofwiki/naturalproofs_proofwiki.json"
         },
         "stacks": {
             "content": ig.Graph(),
-            "address": "data/naturalproofs/naturalproofs_stacks.json"
+            "address": "data/naturalproofs_stacks/naturalproofs_stacks.json"
         },
         "stein": {
             "content": ig.Graph(),
-            "address": "data/naturalproofs/naturalproofs_stein.json"
+            "address": "data/naturalproofs_stein/naturalproofs_stein.json"
         },
         "trench": {
             "content": ig.Graph(),
-            "address": "data/naturalproofs/naturalproofs_trench.json"
+            "address": "data/naturalproofs_trench/naturalproofs_trench.json"
         }
     }
 
@@ -123,7 +123,7 @@ if __name__ == "__main__":
     save_graphs(loaded_graphs, graph_format=GRAPH_FORMAT)
 
     # Summary
-    print("------------- NaturalProofs format convertion -------------")
+    print("------------- Graph format convertion -------------")
     print(f"Saved format: {GRAPH_FORMAT}")
     for graph_name, metadata in loaded_graphs.items():
         print(f"GRAPH ---> {graph_name}")
