@@ -6,8 +6,8 @@ Criteria:
     - Unconnected graphs to main graph
 """
 import igraph as ig
-from models.references import GraphReference
-from functions.filters import unconnected_filter
+from ProofExplorer.models.references import GraphReference
+from ProofExplorer.functions.filters import unconnected_filter
 
 # Raw NaturalProofs (proofwiki)
 NATURALPROOF_PROOFWIKI = GraphReference("data/raw/naturalproofs_proofwiki")
