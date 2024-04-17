@@ -1,0 +1,19 @@
+
+    ============================= SUMMARY =============================
+    # Metadata
+    Name: proofwiki_Algebra
+    Directed: True
+    Nodes: 18859
+    Edges: 77304
+
+    # Types
+    Theorems: 7484
+    Definitions: 10381
+    Others: 994
+
+    # Measures
+    Density: 0.00021736402858482063
+    Diameter: 33
+    Av.Degree: 8.198101702105095
+    -------------------------------------------------------------------
+    

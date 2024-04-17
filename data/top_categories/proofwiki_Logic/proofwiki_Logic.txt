@@ -1,0 +1,19 @@
+
+    ============================= SUMMARY =============================
+    # Metadata
+    Name: proofwiki_Logic
+    Directed: True
+    Nodes: 12007
+    Edges: 50049
+
+    # Types
+    Theorems: 632
+    Definitions: 10381
+    Others: 994
+
+    # Measures
+    Density: 0.0003471862802670456
+    Diameter: 31
+    Av.Degree: 8.3366369617723
+    -------------------------------------------------------------------
+    

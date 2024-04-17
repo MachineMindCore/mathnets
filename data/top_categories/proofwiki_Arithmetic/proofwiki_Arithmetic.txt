@@ -1,0 +1,19 @@
+
+    ============================= SUMMARY =============================
+    # Metadata
+    Name: proofwiki_Arithmetic
+    Directed: True
+    Nodes: 15201
+    Edges: 61416
+
+    # Types
+    Theorems: 3826
+    Definitions: 10381
+    Others: 994
+
+    # Measures
+    Density: 0.0002658066124458571
+    Diameter: 31
+    Av.Degree: 8.080521018354055
+    -------------------------------------------------------------------
+    

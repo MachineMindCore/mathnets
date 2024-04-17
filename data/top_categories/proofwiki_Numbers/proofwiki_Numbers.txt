@@ -1,0 +1,19 @@
+
+    ============================= SUMMARY =============================
+    # Metadata
+    Name: proofwiki_Numbers
+    Directed: True
+    Nodes: 15111
+    Edges: 61071
+
+    # Types
+    Theorems: 3736
+    Definitions: 10381
+    Others: 994
+
+    # Measures
+    Density: 0.0002674714064959669
+    Diameter: 31
+    Av.Degree: 8.08298590430812
+    -------------------------------------------------------------------
+    
