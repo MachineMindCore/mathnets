@@ -1,5 +1,4 @@
-from requests import get
-from helpers.graphs import get_categories
+from ProofExplorer.helpers.graphs import get_categories
 
 import igraph as ig
 import numpy as np
