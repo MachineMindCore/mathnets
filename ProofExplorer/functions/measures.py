@@ -1,6 +1,5 @@
 import igraph as ig
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 
 from typing import Dict
@@ -58,13 +57,15 @@ def generate_node_data(source_graph: ig.Graph, **kwargs) -> pd.DataFrame:
     degree_centrality = source_graph.degree()
     closeness_centrality = source_graph.closeness()
     betweenness_centrality = source_graph.betweenness()
+    eigenvector_centrality = source_graph.eigenvector_centrality()
 
     # Create a DataFrame with the centrality measures
     data = {
         'Node': range(source_graph.vcount()),
         'Degree Centrality': degree_centrality,
         'Closeness Centrality': closeness_centrality,
-        'Betweenness Centrality': betweenness_centrality
+        'Betweenness Centrality': betweenness_centrality,
+        'Eigenvector Centrality': eigenvector_centrality
     }
     nodes_df = pd.DataFrame(data)
 
@@ -73,29 +74,36 @@ def generate_node_data(source_graph: ig.Graph, **kwargs) -> pd.DataFrame:
 
 def generate_distribution_plots(source_graph: ig.Graph, **kwargs) -> Dict[str, plt.figure]:
     data = generate_node_data(source_graph)
-    fig, axs = plt.subplots(1, 3, figsize=(18, 5))
+    fig, axs = plt.subplots(2, 2, figsize=(16, 12))
 
     # Plot histograms for each centrality measure
-    _, _, bars = axs[0].hist(data['Degree Centrality'], bins=20, color='skyblue', edgecolor='black')
-    axs[0].set_title('Degree Centrality Distribution')
-    axs[0].set_xlabel('Degree Centrality')
-    axs[0].set_ylabel('Frequency')
-    axs[0].bar_label(bars, fontsize=8, color='black')
-    axs[0].set_yscale("log")
+    _, _, bars = axs[0,0].hist(data['Degree Centrality'], bins=20, color='skyblue', edgecolor='black')
+    axs[0,0].set_title('Degree Centrality Distribution')
+    axs[0,0].set_xlabel('Degree Centrality')
+    axs[0,0].set_ylabel('Frequency')
+    axs[0,0].bar_label(bars, fontsize=8, color='black')
+    axs[0,0].set_yscale("log")
 
-    _, _, bars = axs[1].hist(data['Closeness Centrality'], bins=20, color='salmon', edgecolor='black')
-    axs[1].set_title('Closeness Centrality Distribution')
-    axs[1].set_xlabel('Closeness Centrality')
-    axs[1].set_ylabel('Frequency')
-    axs[1].bar_label(bars, fontsize=8, color='black')
-    axs[1].set_yscale("log")
+    _, _, bars = axs[0,1].hist(data['Closeness Centrality'], bins=20, color='salmon', edgecolor='black')
+    axs[0,1].set_title('Closeness Centrality Distribution')
+    axs[0,1].set_xlabel('Closeness Centrality')
+    axs[0,1].set_ylabel('Frequency')
+    axs[0,1].bar_label(bars, fontsize=8, color='black')
+    axs[0,1].set_yscale("log")
 
-    _, _, bars = axs[2].hist(data['Betweenness Centrality'], bins=20, color='lightgreen', edgecolor='black')
-    axs[2].set_title('Betweenness Centrality Distribution')
-    axs[2].set_xlabel('Betweenness Centrality')
-    axs[2].set_ylabel('Frequency')
-    axs[2].bar_label(bars, fontsize=8, color='black')
-    axs[2].set_yscale("log")
+    _, _, bars = axs[1,0].hist(data['Betweenness Centrality'], bins=20, color='coral', edgecolor='black')
+    axs[1,0].set_title('Betweenness Centrality Distribution')
+    axs[1,0].set_xlabel('Betweenness Centrality')
+    axs[1,0].set_ylabel('Frequency')
+    axs[1,0].bar_label(bars, fontsize=8, color='black')
+    axs[1,0].set_yscale("log")
+
+    _, _, bars = axs[1,1].hist(data['Eigenvector Centrality'], bins=20, color='lightgreen', edgecolor='black')
+    axs[1,1].set_title('Eigenvector Centrality Distribution')
+    axs[1,1].set_xlabel('Eigenvector Centrality')
+    axs[1,1].set_ylabel('Frequency')
+    axs[1,1].bar_label(bars, fontsize=8, color='black')
+    axs[1,1].set_yscale("log")
 
     return fig
     
