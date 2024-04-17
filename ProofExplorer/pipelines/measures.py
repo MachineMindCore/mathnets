@@ -6,7 +6,7 @@ from ProofExplorer.models import references
 from ProofExplorer.models.references import GraphReference
 
 if __name__ == "__main__":
-    containers_path = "data/top_categories"
+    containers_path = "data/processed"
     for folder in os.listdir(containers_path):
         reference = os.path.join(containers_path, folder)
         container_ref = GraphReference(reference)
