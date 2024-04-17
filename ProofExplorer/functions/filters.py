@@ -22,6 +22,7 @@ def remove_isolated_nodes(source_graph: ig.Graph) -> ig.Graph:
 
     return non_isolated_graph
 
+
 def replace_none(source_graph: ig.Graph, replace_item: Any) -> ig.Graph:
     replaced_graph = source_graph
     for v in replaced_graph.vs:

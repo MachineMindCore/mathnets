@@ -9,3 +9,8 @@
 *.egg-info/
 
 playground.py
+
+# LFS avoid
+*.pickle
+*.json
+*.gml

@@ -1,0 +1,12 @@
+============================= SUMMARY =============================
+
+Name: NAME
+Directed: DIRECTED
+Nodes: NODES
+Edges: EDGES
+
+Density: 
+Diameter:
+Av.Degree:
+
+-------------------------------------------------------------------
