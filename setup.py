@@ -14,4 +14,9 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
     ],
+    entry_points={
+        'console_scripts': [
+            'np_toolkit = naturalproofs_toolkit.tools:main',
+        ],
+    },
 )

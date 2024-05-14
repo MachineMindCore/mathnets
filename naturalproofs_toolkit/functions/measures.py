@@ -106,4 +106,19 @@ def generate_distribution_plots(source_graph: ig.Graph, **kwargs) -> Dict[str, p
     axs[1,1].set_yscale("log")
 
     return fig
-    
+
+def get_hubs(graph: ig.Graph, n_hubs = 3):
+    # Sort vertices by degree in descending order
+    sorted_vertices = sorted(graph.vs, key=lambda x: x.degree(), reverse=True)
+
+    # Get the IDs of the top num_hubs vertices
+    hubs = [(node["id"], node["title"]) for node in sorted_vertices[:n_hubs]]
+
+    return hubs
+
+def get_categories(graph: ig.Graph) -> set:
+    all_categories = set()
+    for vertex in graph.vs:
+        categories_update = vertex["toplevel_categories"]
+        all_categories.update(categories_update)
+    return all_categories

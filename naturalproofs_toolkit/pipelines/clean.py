@@ -6,8 +6,8 @@ Criteria:
     - Unconnected graphs to main graph
 """
 import igraph as ig
-from ProofExplorer.models.references import GraphReference
-from ProofExplorer.functions.filters import remove_isolated_nodes, replace_none
+from naturalproofs_toolkit.containers.containers import GraphReference
+from naturalproofs_toolkit.functions.transformations import remove_isolated_nodes, replace_none
 
 # Raw NaturalProofs (proofwiki)
 NATURALPROOF_PROOFWIKI = GraphReference("data/raw/naturalproofs_proofwiki")

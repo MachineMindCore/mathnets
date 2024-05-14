@@ -1,7 +1,6 @@
 import igraph as ig
-from typing import Any
 
-def component_filter(source_graph: ig.Graph) -> ig.Graph:
+def component_filter(source_graph: ig.Graph, **kwargs) -> ig.Graph:
     # Find the connected components
     components = source_graph.components()
     # Get the largest connected component
@@ -15,7 +14,7 @@ def component_filter(source_graph: ig.Graph) -> ig.Graph:
 
     return filtered_graph
 
-def remove_isolated_nodes(source_graph: ig.Graph) -> ig.Graph:
+def remove_isolated_nodes(source_graph: ig.Graph, **kwargs) -> ig.Graph:
     # Crear un subgrafo excluyendo los nodos aislados
     # Los nodos aislados tienen un grado de 0
     non_isolated_graph = source_graph.subgraph([v.index for v in source_graph.vs if source_graph.degree(v) > 0])
@@ -23,21 +22,24 @@ def remove_isolated_nodes(source_graph: ig.Graph) -> ig.Graph:
     return non_isolated_graph
 
 
-def replace_none(source_graph: ig.Graph, replace_item: Any) -> ig.Graph:
+def replace_none(source_graph: ig.Graph, **kwargs) -> ig.Graph:
+    replace_item = []
     replaced_graph = source_graph
+    
     for v in replaced_graph.vs:
         for key, value in v.attributes().items():
             if value is None:
                 v[key] = replace_item
     return replaced_graph
 
-def hubs_filter(source_graph: ig.Graph, *args, **kwargs) -> ig.Graph:
+def hubs_filter(source_graph: ig.Graph, **kwargs) -> ig.Graph:
     degrees = source_graph.degree_distribution()
 
     print(degrees)
     return source_graph
 
-def k_core_graph(source_graph: ig.Graph, k: int) -> ig.Graph:
+def k_core_graph(source_graph: ig.Graph, **kwargs) -> ig.Graph:
+    k = kwargs["k"]
     # Calcula los k-cores del grafo
     core_indices = source_graph.coreness()
     # Encuentra los vértices que cumplen con el grado mínimo k
