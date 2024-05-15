@@ -1,4 +1,4 @@
-from naturalproofs_toolkit.containers import GraphHandler
+from mathnets.containers import GraphHandler
 
 SEED_ADDR = "data/raw/naturalproofs_proofwiki"
 TEST_ADDR = "data/test/raw_test"

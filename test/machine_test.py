@@ -1,5 +1,5 @@
 from icecream import ic
-from naturalproofs_toolkit.containers import GraphMachine
+from mathnets.containers import GraphMachine
 
 machine = GraphMachine("data/")
 

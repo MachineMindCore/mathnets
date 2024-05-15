@@ -1,6 +1,6 @@
 import unittest
 from igraph import Graph
-from naturalproofs_toolkit.containers import GraphHandler
+from mathnets.containers import GraphHandler
 
 DEMO_ADDR = "data/raw/naturalproofs_proofwiki"
 

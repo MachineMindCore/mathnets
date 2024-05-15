@@ -11,8 +11,8 @@
 playground.py
 
 # Package particles avoid
-/data/**
-!*.part.rar
+data/
+download/
 
 # LFS avoid
 *.pickle

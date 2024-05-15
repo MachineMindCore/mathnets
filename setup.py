@@ -16,7 +16,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'np_toolkit = naturalproofs_toolkit.tools:main',
+            'mathnets = mathnets.tools:main',
         ],
     },
 )
